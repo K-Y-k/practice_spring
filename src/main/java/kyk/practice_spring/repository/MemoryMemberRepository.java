@@ -1,9 +1,11 @@
 package kyk.practice_spring.repository;
 
 import kyk.practice_spring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+//@Repository // 스프링이 스프링 컨테이너에 리포지토리로 인식하고 넣음
 public class MemoryMemberRepository implements MemberRepository{
 
     private static Map<Long, Member> store = new HashMap<>();

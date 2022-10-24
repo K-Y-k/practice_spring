@@ -3,15 +3,20 @@ package kyk.practice_spring.service;
 import kyk.practice_spring.domain.Member;
 import kyk.practice_spring.repository.MemberRepository;
 import kyk.practice_spring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+//@Service // 스프링이 스프링 컨테이너에 넣을 때 서비스로 인식해서 넣어준다.
 public class MemberService {
     // MemberRepository는 인터페이스이기에 MemoryMemberRepository을 new로 생성한 것이다.
     // private final MemberRepository memberRepository = new MemoryMemberRepository();
     // 외부에서 넣어줄 수 있게 하는 방법
     private final MemberRepository memberRepository;
+
+   //  @Autowired // 새로 생성하지 않고 스프링 컨테이너에 있는 MemberRepository를 가져다 연결한다.
     public MemberService(MemberRepository memberRepository) { // memberRepository를 외부에서 넣어준다. = Dependency Injection(DI)
         this.memberRepository = memberRepository;
     }
