@@ -5,10 +5,12 @@ import kyk.practice_spring.repository.MemberRepository;
 import kyk.practice_spring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional  // JPA를 사용하기 위해서는 트랜잭션이 필요
 //@Service // 스프링이 스프링 컨테이너에 넣을 때 서비스로 인식해서 넣어준다.
 public class MemberService {
     // MemberRepository는 인터페이스이기에 MemoryMemberRepository을 new로 생성한 것이다.
@@ -28,6 +30,7 @@ public class MemberService {
     public Long join(Member member) {
         validateDuplicateMember(member); // 중복 회원 검증
         memberRepository.save(member); // 저장소에 저장
+
         return member.getId();         // 임의로 id 반환
     }
 
