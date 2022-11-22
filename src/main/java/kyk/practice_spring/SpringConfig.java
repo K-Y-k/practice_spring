@@ -32,7 +32,7 @@ public class SpringConfig {
     }
 
     @Bean  // aop를 스프링 빈 등록
-    public TimeTraceAop TimeTraceAop() {
+    public TimeTraceAop timeTraceAop() {
         return new TimeTraceAop();
     }
 

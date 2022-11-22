@@ -6,8 +6,8 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
-@Aspect  // aop를 사용하기 위함
 @Component // 스프링 빈 등록
+@Aspect  // aop를 사용하기 위함
 public class TimeTraceAop {
 
     @Around("execution(* kyk.practice_spring..*(..))")  // 적용해줄 패키지 지정 (지정된 패키지 하위까지 모두 적용)
